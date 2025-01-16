@@ -10,7 +10,7 @@
       background-color: gray
     }
 
-    img{
+    img {
       height: 30px;
       width: 30px;
     }
@@ -21,7 +21,12 @@
   <?php
   include 'function.php';
   ?>
-  <a href="create.php"><button>Create</button></a>
+  <form action="create.php" method="post">
+    <p>Name</p>
+    <input type="text" name="name"><br>
+    <button type="submit" name="create" function>Create</button>
+  </form>
+  
   <table>
     <tr>
       <th>ID</th>
@@ -32,15 +37,15 @@
       <td></td>
       <td></td>
 
-      
-      
+
+
     </tr>
-    
+
     <?php
     $sql = "SELECT * FROM data";
     $result = $db->query($sql);
-      while ($row = $result->fetch_assoc()) {
-        echo "<tr><td>" . $row["id"] . "</td>" . "<td>" . $row["name"] . "</td>
+    while ($row = $result->fetch_assoc()) {
+      echo "<tr><td>" . $row["id"] . "</td>" . "<td>" . $row["name"] . "</td>
         <td>
         <form action='update.php' method='post'>
           <input type='hidden' name='id' value='" . $row["id"] . "'>
@@ -49,13 +54,13 @@
       </td>
       <td>
         <form action='delete.php' method='post'>
-          <input type='hidden' name='id' value='". $row["id"] . "'>
+          <input type='hidden' name='id' value='" . $row["id"] . "'>
           <button type='submit'><img src='png-clipart-renca-computer-icons-trash-recycle-bin-miscellaneous-text-thumbnail.png'></button>
         </form>
       </td>
       
-      </tr>"; 
-      }
+      </tr>";
+    }
     ?>
   </table>
   <?php $db->close(); ?>
