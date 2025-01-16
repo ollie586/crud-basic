@@ -26,7 +26,7 @@
     <input type="text" name="name"><br>
     <button type="submit" name="create" function>Create</button>
   </form>
-  
+
   <table>
     <tr>
       <th>ID</th>
@@ -36,11 +36,7 @@
       </td>
       <td></td>
       <td></td>
-
-
-
     </tr>
-
     <?php
     $sql = "SELECT * FROM data";
     $result = $db->query($sql);
@@ -49,7 +45,7 @@
         <td>
         <form action='update.php' method='post'>
           <input type='hidden' name='id' value='" . $row["id"] . "'>
-          <button type='submit'>Update</button>
+          <button type='submit'><img src='105112.png'></button>
         </form>
       </td>
       <td>
